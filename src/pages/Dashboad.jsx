@@ -1,12 +1,9 @@
-import '../assets/style/Dashboad.css';
-import Cards from '../components/Cards';
-import React from 'react';
+import Layout from '../hocs/Layout'
 
-function Dashboad() {
+function Dashboad(props) {
   return (
-    <div className='dashboard'>
-     <Cards/>
-    </div>
+    <Layout><div>Dashboard</div></Layout>
+   
   );
 }
 

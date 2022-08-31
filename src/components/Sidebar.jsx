@@ -1,5 +1,6 @@
 import React from "react";
-import '../assets/style/Sidebar.css';
+import '../assets/styles/Sidebar.css';
+import {Link} from 'react-router-dom';
 import { BsHouseDoorFill} from "react-icons/bs";
 import { MdDashboard } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
@@ -11,73 +12,73 @@ import { FaUserTie } from "react-icons/fa";
 
 export default function Sidebar() {
   return ( 
-    <>
+    <div className="sidebar" >
       <ul>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className="link">
+            <span className='icon'>
               <BsHouseDoorFill />
             </span>
-            <span className="item">Home</span>
-          </a>
+            <span className='item'>Home</span>
+          </Link>
         </li>
         <li>
-          <a href="/dashboard">
-            <span className="icon">
+          <Link to="/dashboard" className="link">
+            <span className='icon'>
               <MdDashboard />
             </span>
-            <span className="item">My Dashboard</span>
-          </a>
+            <span className='item'>My Dashboard</span>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className="link">
+            <span className='icon'>
               <MdMedicalServices/>
             </span>
-            <span className="item">Appointments</span>
-          </a>
+            <span className='item'>Appointments</span>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className="link">
+            <span className='icon'>
               <FaBookMedical/>
             </span>
-            <span className="item">Cases</span>
-          </a>
+            <span className='item'>Cases</span>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className="link">
+            <span className='icon'>
               <AiFillMedicineBox/>
             </span>
-            <span className="item">Stocks</span>
-          </a>
+            <span className='item'>Stocks</span>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className="link">
+            <span className='icon'>
               <FaFileMedicalAlt/>
             </span>
-            <span className="item">Reports</span>
-          </a>
+            <span className='item'>Reports</span>
+          </Link>
         </li>
         <li>
-          <a href="/user">
-            <span className="icon">
+          <Link to="/user" className="link">
+            <span className='icon'>
               <FaUserTie/>
             </span>
-            <span className="item">User</span>
-          </a>
+            <span className='item'>User</span>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className="link">
+            <span className='icon'>
               <AiFillSetting/>
             </span>
-            <span className="item">Settings</span>
-          </a>
+            <span className='item'>Settings</span>
+          </Link>
         </li>
       </ul>
-    </>
+    </div>
   );
 }

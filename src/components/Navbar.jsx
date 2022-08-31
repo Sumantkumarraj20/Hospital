@@ -1,35 +1,34 @@
-import '../assets/style/Navbar.css';
+import navStyle from '../assets/styles/Navbar.module.css';
 import logo from '../assets/images/logo.png';
-import {FiSearch} from 'react-icons/fi';
+import { HiMenu } from "react-icons/hi";
 import profile_pic from '../assets/images/default.svg';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Searchbox from './Searchbox';
 
-export default function Navbar() {
+export default function Navbar(props) {
+
   return (
-    <>
-      <div className="logo">
+    <div className={navStyle.navbar}>
+      <button className={navStyle.himenu} onClick={props.onClick}>
+          <span>
+            <HiMenu />
+          </span>
+        </button>
+      <div className={navStyle.logo}>
         <img src={logo} alt="logo"/>
       </div>
-      <div className='middle'>
-          <input type="search" id="site-search" name="q"/>
-          <button id='search'><FiSearch/></button>
+      <div className={navStyle.middle}>
+        <Searchbox/>
         </div>
-      <div className="profile">
-        <div className="auth">
-          <a href="/login" className="button">
-            Signin
-          </a>
-          <a href="/resiter" className="button">
-            Resister
-          </a>
-        </div>
-        <div className="profilepic">
-          <a href="/login" className="prolink">
+      <div className={navStyle.profile}>
+        <div className={navStyle.profilepic}>
+          <Link to="/login" className={navStyle.prolink}>
             <img src={profile_pic} alt="profile" />
-          </a>
+          </Link>
         </div>
         
       </div>
-  </>
+  </div>
   );
 }

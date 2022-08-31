@@ -1,5 +1,6 @@
-import React from 'react'
-import '../assets/style/Bottombar.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../assets/styles/Bottombar.css';
 import { BsHouseDoorFill} from "react-icons/bs";
 import { MdDashboard } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
@@ -10,63 +11,63 @@ import { FaFileMedicalAlt } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 export default function Bottombar() {
   return (
-    <div>
+    <div className='bottombar'>
         <ul>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className='link'>
+            <span className='icon'>
               <BsHouseDoorFill />
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className='link'>
+            <span className='icon'>
               <MdDashboard />
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className='link'>
+            <span className='icon'>
               <MdMedicalServices/>
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className='link'>
+            <span className='icon'>
               <FaBookMedical/>
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className='link'>
+            <span className='icon'>
               <AiFillMedicineBox/>
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className='link'>
+            <span className='icon'>
               <FaFileMedicalAlt/>
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className='link'>
+            <span className='icon'>
               <FaUserTie/>
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/">
-            <span className="icon">
+          <Link to='/' className='link'>
+            <span className='icon'>
               <AiFillSetting/>
             </span>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
