@@ -1,0 +1,31 @@
+.searchbox{
+    display: flex;
+}
+
+#siteSearch{
+  height: 35px;
+  border: none;
+  width: 80%;
+  background: rgb(255, 220, 249);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 2px 20px;
+  outline: none;
+}
+
+  #search{
+    border: none;
+    height: 35px;
+    width: 20%;
+    max-width: 60px;
+    min-width: 35px;
+    background: rgb(152, 0, 115);
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  #search:hover{
+    background: #4B2947;
+  }

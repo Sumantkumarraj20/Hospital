@@ -1,0 +1,91 @@
+  .navbar{
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: fixed;
+    height: 64px;
+    width: 100%;
+    z-index: 5;
+    box-shadow: 0px 0px 3px #763C63;
+    padding: 1px;
+  } 
+  
+  .himenu{
+    font-size: 25px;
+    font-weight: 400;
+    background: white;
+    border: 0px;
+    color: rgb(152, 0, 115);
+    padding-top: 6px;
+    border-radius: 7px;
+    display: block;
+  }
+  .himenu:hover{
+    background: #F9CEF3;
+    color: #4B2947;
+  }
+  .logo{
+
+    position: absolute;
+    left: 40px;
+  }
+  .middle {
+    position: absolute;
+    left: 150px;
+    right: 180px;
+    border-radius: 3px;
+  }
+  .profile {
+    position: absolute;
+    right: 10px;
+  }
+  
+  .auth{
+    display: block;
+  }
+
+  .profilepic{
+    display: block;
+    margin: 5px 10px;
+    border-radius: 50%;
+  }
+
+  .nav-links a {
+    color: #fff;
+  }
+img{
+  height: 55px;
+  width: auto;
+}
+   
+  .button{
+    text-decoration: none;
+    color: rgb(152, 0, 115);
+    margin-right: 8px;
+    font-size: 16px;
+    padding: 4px 6px;
+    border: 1px solid rgb(152, 0, 115);
+    border-radius: 3px;
+  }
+  
+  .button:hover{
+    background: rgb(152, 0, 115);
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    .himenu{
+      display: block;
+    }
+    /* .logo{
+      position: relative;
+      top: 6px;
+      left: -100px;
+    } */
+    .auth{
+      display: block;
+      position: absolute;
+      right: 10px;
+    }
+  }
