@@ -11,14 +11,13 @@ import FormLayout from "../hocs/FormLayout";
 const Signup = ({ signup, isAuthenticated }) => {
     const [accountCreated, setAccountCreated] = useState(false);
     const [formData, setFormData] = useState({
-        first_name: '',
-        last_name: '',
+        email: '',
         username: '',
         password: '',
         re_password: ''
     });
 
-    const { first_name, last_name, username, password, re_password } = formData;
+    const { email, username, password, re_password } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -26,7 +25,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         e.preventDefault();
 
         if (password === re_password) {
-            signup(first_name, last_name, username, password, re_password);
+            signup(email, username, password, re_password);
             setAccountCreated(true);
         }
     };
@@ -52,7 +51,7 @@ const Signup = ({ signup, isAuthenticated }) => {
     };
 
     if (isAuthenticated) {
-        return <Navigate to='/' />
+        return <Navigate to='/dashboard' />
     }
     if (accountCreated) {
         return <Navigate to='/login' />
@@ -65,26 +64,17 @@ const Signup = ({ signup, isAuthenticated }) => {
             <form onSubmit={e => onSubmit(e)}>
                     <input
                         className={style.forminput}
-                        type='text'
-                        placeholder='First Name*'
-                        name='first_name'
-                        value={first_name}
-                        onChange={e => onChange(e)}
-                        required
-                    />
-                    <input
-                        className={style.forminput}
-                        type='text'
-                        placeholder='Last Name*'
-                        name='last_name'
-                        value={last_name}
+                        type='email'
+                        placeholder='Email address*'
+                        name='email'
+                        value={email}
                         onChange={e => onChange(e)}
                         required
                     />
                      <input
                         className={style.forminput}
                         type='username'
-                        placeholder='username* or Username'
+                        placeholder='username*'
                         name='username'
                         value={username}
                         onChange={e => onChange(e)}
@@ -97,7 +87,7 @@ const Signup = ({ signup, isAuthenticated }) => {
                         name='password'
                         value={password}
                         onChange={e => onChange(e)}
-                        minLength='6'
+                        minLength='8'
                         required
                     />
                     <input
@@ -107,7 +97,7 @@ const Signup = ({ signup, isAuthenticated }) => {
                         name='re_password'
                         value={re_password}
                         onChange={e => onChange(e)}
-                        minLength='6'
+                        minLength='8'
                         required
                     />
                 <button className={style.loginbtn} type='submit'>Register</button>

@@ -1,17 +1,38 @@
 import Card from '../hocs/Card';
 import style from '../assets/styles/Home.module.css';
-import {Link} from 'react-router-dom';
+import {Navigate, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { verify } from '../actions/auth';
 
-const Activate = () => {
+const Activate = ({ verify, match }) => {
+    const [verified, setVerified] = useState(false);
+
+    const { uid, token } = useParams();
+
+    const verify_account = e => {
+      
+        verify(uid, token);
+        setVerified(true);
+    };
+
+    if (verified) {
+        return <Navigate to='/' />
+    }
   return (
-    <div>
-      Activate Now
+    <div >
       <Card>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad reprehenderit doloribus enim incidunt, earum at, voluptas illo exercitationem voluptatem placeat repudiandae quibusdam perspiciatis accusantium, ratione nobis. Illum provident voluptas accusantium.</p>
-        <Link to='/dashboard' className={style.btn}>Activate Your acccount!</Link>
+      <h3>Verify your Account:</h3>
+                <button
+                    onClick={verify_account}
+                    type='button'
+                    className={style.btn}
+                >
+                    Verify
+                </button>
       </Card>
     </div>
   )
 }
 
-export default Activate
+export default connect(null, { verify })(Activate);

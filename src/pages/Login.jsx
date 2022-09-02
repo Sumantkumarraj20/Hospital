@@ -46,7 +46,7 @@ const Login = ({ login, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    return <Navigate to="/" />;
+    return <Navigate to="/dashboard" />;
   }
 
   return (
@@ -76,7 +76,7 @@ const Login = ({ login, isAuthenticated }) => {
           name="password"
           value={password}
           onChange={(e) => onChange(e)}
-          minLength='6'
+          minLength='8'
           required
         />
 
