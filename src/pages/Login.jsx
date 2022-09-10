@@ -21,8 +21,11 @@ const Login = ({ login, isAuthenticated }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    login(username, password);
+    try {
+      login(username, password);
+    } catch (err) {
+      alert("wrong username of password");
+    }
   };
 
   const continueWithGoogle = async () => {
@@ -76,7 +79,7 @@ const Login = ({ login, isAuthenticated }) => {
           name="password"
           value={password}
           onChange={(e) => onChange(e)}
-          minLength='8'
+          minLength="8"
           required
         />
 
@@ -117,7 +120,7 @@ const Login = ({ login, isAuthenticated }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth?.isAuthenticated,
+  isAuthenticated: state.rootReducer.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { login })(Login);

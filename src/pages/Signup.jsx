@@ -124,7 +124,7 @@ const Signup = ({ signup, isAuthenticated }) => {
 };
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth?.isAuthenticated
+    isAuthenticated: state.rootReducer.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { signup })(Signup);

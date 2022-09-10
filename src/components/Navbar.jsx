@@ -5,8 +5,14 @@ import profile_pic from '../assets/images/default.svg';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Searchbox from './Searchbox';
+import {logout} from '../actions/auth'
+import { connect } from 'react-redux';
 
-export default function Navbar(props) {
+const Navbar = ({ logout },props) => {
+  const logout_user =()=>{
+    logout()
+    alert('user logged out')
+  }
 
   return (
     <div className={navStyle.navbar}>
@@ -27,8 +33,14 @@ export default function Navbar(props) {
             <img src={profile_pic} alt="profile" />
           </Link>
         </div>
-        
+        <div className={navStyle.dropdown}>
+          <Link className={navStyle.item} to='/'>ViewProfile</Link>
+          <Link className={navStyle.item} to='/'>ChangeProfilePic</Link>
+          <Link className={navStyle.item} to ='/' onClick={logout_user}>Logout</Link>
+        </div>
       </div>
   </div>
   );
 }
+
+export default connect(null,{logout}) (Navbar)

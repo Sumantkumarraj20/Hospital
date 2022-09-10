@@ -20,14 +20,14 @@ import {
     LOGOUT
 } from '../actions/types';
 
-const initialState = {
+const initialAuthState = {
     access: localStorage.getItem('access'),
     refresh: localStorage.getItem('refresh'),
-    isAuthenticated: null,
+    isAuthenticated: false,
     user: null
 };
 
-export default function loginReducer(state = initialState, action) {
+const authReducer = (state = initialAuthState, action)=> {
     const { type, payload } = action;
 
     switch(type) {
@@ -94,3 +94,5 @@ export default function loginReducer(state = initialState, action) {
             return state
     }
 };
+
+export default authReducer;

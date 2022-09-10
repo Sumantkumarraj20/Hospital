@@ -1,10 +1,26 @@
 import Layout from '../hocs/Layout'
+import { Navigate } from "react-router-dom";
+import { connect } from 'react-redux';
+
 
 function Dashboad(props) {
+  const {isAuthenticated} = props;
+  if(!isAuthenticated){
+    return <Navigate to='/login'/>;
+  }
   return (
-    <Layout><div>Dashboard</div></Layout>
+    <Layout>
+      <div>
+        Dashboad
+      </div>
+    </Layout>
    
   );
 }
 
-export default Dashboad;
+const mapStateToProps = state => ({
+  user: state.rootReducer.auth.user,
+  isAuthenticated: state.rootReducer.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(Dashboad);

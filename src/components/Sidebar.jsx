@@ -10,7 +10,8 @@ import { AiFillMedicineBox } from "react-icons/ai";
 import { FaFileMedicalAlt } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 
-export default function Sidebar() {
+const Sidebar = () => {
+
   return (
     <div className="sidebar">
       <ul>
@@ -63,11 +64,11 @@ export default function Sidebar() {
           </Link>
         </li>
         <li>
-          <Link to="/user" className="link">
+          <Link to="/login" className="link" >
             <span className="icon">
               <FaUserTie />
             </span>
-            <span className="item">User</span>
+            <span className="item">Logout</span>
           </Link>
         </li>
         <li>
@@ -80,5 +81,7 @@ export default function Sidebar() {
         </li>
       </ul>
     </div>
-  );
+  )
 }
+
+export default (Sidebar);
