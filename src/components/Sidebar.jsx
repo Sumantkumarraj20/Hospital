@@ -64,11 +64,11 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/login" className="link" >
+          <Link to="/profile" className="link" >
             <span className="icon">
               <FaUserTie />
             </span>
-            <span className="item">Logout</span>
+            <span className="item">User</span>
           </Link>
         </li>
         <li>

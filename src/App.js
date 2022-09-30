@@ -8,6 +8,7 @@ import ResetPassword from './pages/ResetPassword';
 import ResetPasswordConfirm from './pages/ResetPasswordConfirm';
 import Activate from './pages/Activate';
 import { Routes, Route } from "react-router-dom";
+import Profile from './pages/Profile';
 
 
 const App = () => {
@@ -21,9 +22,10 @@ const App = () => {
         <Route path='/password/reset/confirm/:uid/:token' element={<ResetPasswordConfirm/>} />
         <Route path='/activate/:uid/:token' element={<Activate/>} />
         <Route path='/dashboard' element={<Dashboad/>} />
+        <Route path='/profile' element={<Profile/>} />
       </Routes>
     </div>      
 )
 }
 
-export default App
+export default (App);

@@ -18,8 +18,40 @@ import {
     GOOGLE_AUTH_FAIL,
     FACEBOOK_AUTH_SUCCESS,
     FACEBOOK_AUTH_FAIL,
-    LOGOUT
+    LOGOUT,
+    PROFILE_LOAD,
+    PROFILE_LOAD_FAIL
 } from './types';
+
+export const load_profile =(pk)=> async dispatch =>{
+    if (pk) {
+        console.log('profile loading')
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `JWT ${localStorage.getItem('access')}`,
+                'Accept': 'application/json'
+            }
+        }; 
+
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/accounts/users/${pk}/`, config);
+            dispatch({
+                type: PROFILE_LOAD,
+                payload: res.data
+            });
+        } catch (err) {
+            dispatch({
+                type: PROFILE_LOAD_FAIL,
+                payload: err.response
+            });
+        }
+    } else {
+        dispatch({
+            type: PROFILE_LOAD_FAIL
+        });
+    }
+};
 
 export const load_user = () => async dispatch => {
     if (localStorage.getItem('access')) {
@@ -170,7 +202,8 @@ export const login = (username, password) => async dispatch => {
         dispatch(load_user());
     } catch (err) {
         dispatch({
-            type: LOGIN_FAIL
+            type: LOGIN_FAIL,
+            payload: err.response.data.detail,
         })
     }
 };
@@ -191,9 +224,19 @@ export const signup = (email, username, password, re_password) => async dispatch
             type: SIGNUP_SUCCESS,
             payload: res.data
         });
+        alert('user successfully created')
     } catch (err) {
+        let err_msg =''
+        const user_err = err.response.data.username;
+        const password_err = err.response.data.password;
+        if(user_err){
+            err_msg = user_err
+        } else{
+            err_msg = password_err
+        }
         dispatch({
-            type: SIGNUP_FAIL
+            type: SIGNUP_FAIL,
+            payload: err_msg
         })
     }
 };

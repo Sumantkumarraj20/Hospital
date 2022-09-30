@@ -2,26 +2,24 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Bottombar from "../components/Bottombar";
 import style from "../assets/styles/Layout.module.css";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { connect } from "react-redux";
-import { checkAuthenticated, load_user } from "../actions/auth";
 
-const Layout = ({checkAuthenticated, load_user, children}, props) => {
-  const {user} = props;
+import { Navigate } from "react-router-dom";
 
-  useEffect(() => {
-    checkAuthenticated();
-    load_user();
-  },[]);
+const Layout = ({children, isAuthenticated}) => {
   const [show, setshow] = useState(true);
   const showhide = () => {
-    console.log("clicked");
     setshow(!show);
   };
 
+  if (!isAuthenticated){
+    return(<Navigate to='/login'/>)
+  }
+
   return (
     <div>
-      <Navbar onClick={showhide} user={user} />
+      <Navbar onClick={showhide} user='user' isAuthenticated="true" />
       {show && <Sidebar />}
       {!show && <Bottombar />}
       <div className={style.content}>{children}</div>
@@ -34,4 +32,4 @@ const mapStateToProps = state => ({
   isAuthenticated: state.rootReducer.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { checkAuthenticated, load_user })(Layout);
+export default connect(mapStateToProps)(Layout);

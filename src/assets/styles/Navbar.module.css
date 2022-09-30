@@ -49,6 +49,8 @@
     display: block;
     margin: 5px 10px;
     border-radius: 50%;
+    height: 55px;
+    width: auto;
   }
 
   .dropdown {

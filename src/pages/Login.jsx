@@ -6,9 +6,9 @@ import axios from "axios";
 import style from "../assets/styles/Login.module.css";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import FormLayout from "../hocs/FormLayout";
+import FormLayout from "../hocs/authForm";
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated, err_msg }) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -24,7 +24,7 @@ const Login = ({ login, isAuthenticated }) => {
     try {
       login(username, password);
     } catch (err) {
-      alert("wrong username of password");
+      console.log(err)
     }
   };
 
@@ -55,6 +55,7 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <FormLayout>
       <h3 className={style.formh3}>Signin Here! </h3>
+      {err_msg && <div className={style.err} >{err_msg}</div>}
       <form action="post" onSubmit={(e) => onSubmit(e)}>
         <label className={style.formlabel} htmlFor="username">
           Username
@@ -121,6 +122,7 @@ const Login = ({ login, isAuthenticated }) => {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.rootReducer.auth.isAuthenticated,
+  err_msg: state.rootReducer.auth.err_msg,
 });
 
 export default connect(mapStateToProps, { login })(Login);

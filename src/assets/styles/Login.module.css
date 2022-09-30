@@ -150,6 +150,12 @@
   .footer .link:hover{
     color: #3b0c31;
   }
+
+  .err{
+    color: red;
+    font-size: small;
+    text-align: center;
+  }
 @media (max-width: 700px) or (orientation: portrait) {
     .loginform{
         max-width: 424px;

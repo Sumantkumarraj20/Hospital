@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { reset_password_confirm } from "../actions/auth";
-import FormLayout from "../hocs/FormLayout";
+import FormLayout from "../hocs/authForm";
 import style from "../assets/styles/Login.module.css";
 
 const ResetPasswordConfirm = ({ match, reset_password_confirm }) => {

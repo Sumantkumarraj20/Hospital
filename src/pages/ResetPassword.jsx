@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import style from'../assets/styles/Login.module.css';
-import FormLayout from '../hocs/FormLayout';
+import FormLayout from '../hocs/authForm';
 import { reset_password } from '../actions/auth';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';

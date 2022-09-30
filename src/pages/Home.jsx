@@ -1,13 +1,13 @@
-import Card from "../hocs/Card";
-import UnauthNav from "../components/UnauthNav";
+import Card from "../components/Card";
 import style from "../assets/styles/Home.module.css";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <div>
       <div className={style.nav}>
-        <UnauthNav />
+        <Navbar />
       </div>
       <div className={style.content}>
         <Card>

@@ -6,3 +6,15 @@
     box-shadow: 0 0 4px rgba(62, 29, 66, 0.6);
     padding: 50px 30px;
 }
+
+.listgroup{
+    display: flex;
+    flex-direction: column;
+}
+
+.listitem{
+    text-align: start;
+    margin: 2px;
+    padding: 2px;
+    list-style: none;
+}

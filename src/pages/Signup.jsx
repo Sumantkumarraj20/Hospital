@@ -6,10 +6,9 @@ import axios from 'axios';
 import {FaGoogle} from 'react-icons/fa'
 import {FaGithub} from 'react-icons/fa'
 import style from '../assets/styles/Login.module.css'
-import FormLayout from "../hocs/FormLayout";
+import FormLayout from "../hocs/authForm";
 
-const Signup = ({ signup, isAuthenticated }) => {
-    const [accountCreated, setAccountCreated] = useState(false);
+const Signup = ({ signup, isAuthenticated, err_msg }) => {
     const [formData, setFormData] = useState({
         email: '',
         username: '',
@@ -26,7 +25,6 @@ const Signup = ({ signup, isAuthenticated }) => {
 
         if (password === re_password) {
             signup(email, username, password, re_password);
-            setAccountCreated(true);
         }
     };
 
@@ -53,14 +51,12 @@ const Signup = ({ signup, isAuthenticated }) => {
     if (isAuthenticated) {
         return <Navigate to='/dashboard' />
     }
-    if (accountCreated) {
-        return <Navigate to='/login' />
-    }
 
     return (
         <FormLayout>
             <h3 className={style.formh3}>Sign Up</h3>
             <p>Create your Account</p>
+            {err_msg && <div className={style.err}>{err_msg}</div> }
             <form onSubmit={e => onSubmit(e)}>
                     <input
                         className={style.forminput}
@@ -124,7 +120,8 @@ const Signup = ({ signup, isAuthenticated }) => {
 };
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.rootReducer.auth.isAuthenticated
+    isAuthenticated: state.rootReducer.auth.isAuthenticated,
+    err_msg: state.rootReducer.auth.err_msg
 });
 
 export default connect(mapStateToProps, { signup })(Signup);

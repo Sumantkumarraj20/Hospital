@@ -17,14 +17,18 @@ import {
     GOOGLE_AUTH_FAIL,
     FACEBOOK_AUTH_SUCCESS,
     FACEBOOK_AUTH_FAIL,
-    LOGOUT
+    LOGOUT,
+    PROFILE_LOAD,
+    PROFILE_LOAD_FAIL
 } from '../actions/types';
 
 const initialAuthState = {
     access: localStorage.getItem('access'),
     refresh: localStorage.getItem('refresh'),
     isAuthenticated: false,
-    user: null
+    user: null,
+    profile: null,
+    err_msg:'',
 };
 
 const authReducer = (state = initialAuthState, action)=> {
@@ -70,7 +74,15 @@ const authReducer = (state = initialAuthState, action)=> {
         case GOOGLE_AUTH_FAIL:
         case FACEBOOK_AUTH_FAIL:
         case LOGIN_FAIL:
+            return{
+                ...state,
+                err_msg: action.payload
+            }
         case SIGNUP_FAIL:
+            return{
+                ...state,
+                err_msg: action.payload
+            }
         case LOGOUT:
             localStorage.removeItem('access');
             localStorage.removeItem('refresh');
@@ -81,6 +93,12 @@ const authReducer = (state = initialAuthState, action)=> {
                 isAuthenticated: false,
                 user: null
             }
+        case PROFILE_LOAD:
+            return{
+                ...state,
+                profile: payload
+            }
+        case PROFILE_LOAD_FAIL:
         case PASSWORD_RESET_SUCCESS:
         case PASSWORD_RESET_FAIL:
         case PASSWORD_RESET_CONFIRM_SUCCESS:

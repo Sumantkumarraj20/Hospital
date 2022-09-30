@@ -1,4 +1,4 @@
-import Card from '../hocs/Card';
+import Card from '../components/Card';
 import style from '../assets/styles/Home.module.css';
 import {Navigate, useParams } from 'react-router-dom';
 import React, { useState } from 'react';
