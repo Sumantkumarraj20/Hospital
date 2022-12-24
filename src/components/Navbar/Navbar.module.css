@@ -1,0 +1,108 @@
+  .navbar{
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 3.5rem;
+    min-height: 60px;
+    width: 100%;
+    z-index: 5;
+    box-shadow: 0px 0px 3px #763C63;
+  } 
+
+  .logo{
+    display: flex;
+    align-items: center;
+  }
+  
+  .himenu{
+    justify-self: start;
+    background: white;
+    border: none;
+    color: rgb(152, 0, 115);
+    margin: .2rem;
+    padding: .2rem;
+    border-radius: 0.4rem;
+    display: block;
+  }
+  .himenu:hover{
+    background: #F9CEF3;
+    color: #4B2947;
+  }
+
+  #logoimg{
+    height: 3rem;
+  }
+  .middle {
+    justify-self: center;
+  }
+  .profile {
+    margin-right: 2rem;
+  }
+  
+  .auth{
+    display: block;
+  }
+
+  .profilepic{
+    display: block;
+
+  }
+  #avatar{
+    padding: 0.3rem;
+    border-radius: 50%;
+    height: 3rem;
+    width: auto;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    right: 0rem;
+    width: 10rem;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  .item {
+    color: #4B2947;
+    background: #ffffff;
+    padding: .75rem 1rem;
+    max-width: 10rem;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+  }
+  .item3 {
+    color: #4B2947;
+    background: #ffffff;
+    padding: .75rem 1rem;
+    max-width: 10rem;
+    border-radius: .3rem;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .profile:hover .dropdown{display: block;}
+  .item:hover {background: #F9CEF3;}
+
+  .nav-links a {
+    color: #fff;
+  }
+  .button{
+    text-decoration: none;
+    color: rgb(152, 0, 115);
+    margin-right: .5rem;
+    padding: .25rem .37rem;
+    border: 1px solid rgb(152, 0, 115);
+    border-radius: 3px;
+  }
+  
+  .button:hover{
+    background: rgb(152, 0, 115);
+    color: white;
+  }

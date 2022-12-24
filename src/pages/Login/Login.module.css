@@ -1,0 +1,172 @@
+.main:before,
+.main:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background{
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #ef23f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff2fff,
+        #6419f0
+    );
+    right: -90px;
+    bottom: -50px;
+}
+.loginform{
+    height: 600px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    border-radius: 10px;
+    margin-top: 2px;
+    position: absolute;
+     left: 25%;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(62, 29, 66, 0.6);
+    padding: 50px 30px;
+}
+
+.loginform *{
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.logo{
+    position: absolute;
+    top: 0px;
+    left: 170px;
+}
+
+.formh3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+.formlabel{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(152, 0, 115);
+}
+
+.forminput{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(190, 148, 190, 0.07);
+    border: none;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+::placeholder{
+    color: #e2c3e0;
+}
+
+.loginbtn{
+    margin-top: 50px;
+    width: 100%;
+    background: rgb(152, 0, 115);
+    color: white;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover{
+    color: rgb(152, 0, 115);
+    background-color: #ffffff;
+  }
+  .social{
+    margin-top: 30px;
+    display: flex;
+  }
+  .social div{
+    width: 165px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    background: #ffb5f379;
+    color: #4B2947;
+    text-align: center;
+  }
+  .social div:hover{
+    background-color: #F9CEF3;
+  }
+  .social .ap{
+    margin-left: 25px;
+  }
+  .social .go{
+    margin-right: 25px;
+  }
+
+
+  .social .icon{
+    font-size: 14px;
+    margin-right: 6px;
+  }
+  
+  .footer{
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .footer .link{
+    color: #1845ad;
+  }
+  .footer .link:hover{
+    color: #3b0c31;
+  }
+
+  .err{
+    color: red;
+    font-size: small;
+    text-align: center;
+  }
+@media (max-width: 700px) or (orientation: portrait) {
+    .loginform{
+        max-width: 424px;
+        max-height: 625px;
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        overflow: scroll;
+    }
+}
